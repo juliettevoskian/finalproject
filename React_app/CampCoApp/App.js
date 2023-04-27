@@ -1,10 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react'
-import { StyleSheet, Text, View, Image, Button, Pressable, NavigationContainer } from 'react-native';
-import Munchies from './Munchies';
+import { StyleSheet, Text, View, Image, Pressable, NavigationContainer } from 'react-native';
 import HomePage from './HomeScreen';
 
-
+<<<<<<< HEAD
 export default function App({navigation}) {
   return (
     <View style={styles.container}>
