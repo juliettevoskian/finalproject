@@ -21,26 +21,42 @@ const handleAddToOrder = item => {
   };
   
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Menu</Text>
-      <FlatList
-        data={menuItems}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => (
-          <ListItem>
-            <ListItem.Content>
-              <ListItem.Title>{item.name}</ListItem.Title>
-              <ListItem.Subtitle>${item.price.toFixed(2)}</ListItem.Subtitle>
-            </ListItem.Content>
-            <Button
+    <Text style={{marginTop: 40}}>
+          <FlatList
+          data={menu}
+          renderItem={({item}) => 
+              <View style={styles.border}>
+                <Text style={{flex: 1, flexWrap: 'wrap'}}>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate('//cart');
+                }}
+                style={({ pressed }) => [
+                  {
+                    backgroundColor: pressed
+                      ? 'rgb(255, 0, 0)'
+                      : 'white'
+                  },
+                  styles.wrapperCustom
+                ]}>
+                {({ pressed }) => (
+                  <View>
+                    <Text style={styles.itemName}>{item.menuName}</Text>
+                    <Text style={styles.itemPrice}>{item.menuprice}</Text>
+                    
+                  </View>
+                )}
+              </Pressable>
+              </Text>
+              <Button
               title="Add to Order"
               onPress={() => handleAddToOrder(item)}
               buttonStyle={styles.button}
             />
-          </ListItem>
-        )}
-      />
-    </View>
+              </View>
+              
+          } />
+      </Text>
   );
 
 
