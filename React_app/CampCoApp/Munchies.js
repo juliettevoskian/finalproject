@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity, Pressable } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, Pressable } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, ListItem } from 'react-native-elements'; 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const MenuScreen = () => {
     const [menuItems, setMenuItems] = useState([]);
@@ -20,44 +22,44 @@ export default function Munchies({ navigation, route }) {
 const handleAddToOrder = item => {
   };
   
-  return (
-    <Text style={{marginTop: 40}}>
-          <FlatList
-          data={menu}
-          renderItem={({item}) => 
-              <View style={styles.border}>
-                <Text style={{flex: 1, flexWrap: 'wrap'}}>
-              <Pressable
-                onPress={() => {
-                  navigation.navigate('//cart');
-                }}
-                style={({ pressed }) => [
-                  {
-                    backgroundColor: pressed
-                      ? 'rgb(255, 0, 0)'
-                      : 'white'
-                  },
-                  styles.wrapperCustom
-                ]}>
-                {({ pressed }) => (
-                  <View>
-                    <Text style={styles.itemName}>{item.menuName}</Text>
-                    <Text style={styles.itemPrice}>{item.menuprice}</Text>
+  // return (
+  //   <Text style={{marginTop: 40}}>
+  //         <FlatList
+  //         data={menu}
+  //         renderItem={({item}) => 
+  //             <View style={styles.border}>                                                                                                                                                 
+  //               <Text style={{flex: 1, flexWrap: 'wrap'}}>
+  //             <Pressable
+  //               onPress={() => {
+  //                 navigation.navigate('//cart');
+  //               }}
+  //               style={({ pressed }) => [
+  //                 {
+  //                   backgroundColor: pressed
+  //                     ? 'rgb(255, 0, 0)'
+  //                     : 'white'
+  //                 },
+  //                 styles.wrapperCustom
+  //               ]}>
+  //               {({ pressed }) => (
+  //                 <View>
+  //                   <Text style={styles.itemName}>{item.menuName}</Text>
+  //                   <Text style={styles.itemPrice}>{item.menuprice}</Text>
                     
-                  </View>
-                )}
-              </Pressable>
-              </Text>
-              <Button
-              title="Add to Order"
-              onPress={() => handleAddToOrder(item)}
-              buttonStyle={styles.button}
-            />
-              </View>
+  //                 </View>
+  //               )}
+  //             </Pressable>
+  //             </Text>
+  //             <Button
+  //             title="Add to Order"
+  //             onPress={() => handleAddToOrder(item)}
+  //             buttonStyle={styles.button}
+  //           />
+  //             </View>
               
-          } />
-      </Text>
-  );
+  //         } />
+  //     </Text>
+  // );
 
 
             
