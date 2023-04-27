@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity, Pressable } from 'react-native';
 import { useEffect, useState } from 'react';
-import { Button, ListItem } from 'react-native-elements'; 
+// import { Button, ListItem } from 'react-native-elements'; 
 
 const MenuScreen = () => {
     const [menuItems, setMenuItems] = useState([]);
@@ -16,11 +16,7 @@ export default function Munchies({ navigation, route }) {
         {menuitem: "MAC & CHEESE BITES", menuprice: "$6.49"},
         {menuitem: "NACHOS", menuprice: "$8.49"},
     ]
-}
-const handleAddToOrder = item => {
-  };
-  
-  return (
+    return (
     <Text style={{marginTop: 40}}>
           <FlatList
           data={menu}
@@ -57,7 +53,12 @@ const handleAddToOrder = item => {
               
           } />
       </Text>
-  );
+        );
+}
+const handleAddToOrder = item => {
+  };
+  
+  
 
 
             

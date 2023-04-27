@@ -1,7 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react'
 import { StyleSheet, Text, View, Image, Pressable, NavigationContainer } from 'react-native';
-import Munchies from './Munchies';
 import HomePage from './HomeScreen';
 
 export default function App({}) {
