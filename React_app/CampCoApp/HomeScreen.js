@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import Munchies from './Munchies';
 
 
 export default function HomePage({ navigation }) {
@@ -42,7 +41,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 10,
   },
   button: {
     backgroundColor: '#0000FF',
