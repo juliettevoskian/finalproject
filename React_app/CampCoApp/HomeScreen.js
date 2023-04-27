@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 30,
+    marginBottom: 10,
   },
   button: {
     backgroundColor: '#0000FF',
