@@ -1,34 +1,40 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'; 
+import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native'; 
 
 
 export default function HomePage({ navigation }) {
   return (
     <View style={styles.container}>
-      <Image
-        source={{ uri: 'https://images.app.goo.gl/n3GEP5K6YpNmdQmq5' }}
-        style={styles.logo}
-      />
        <Text style={styles.title}>Welcome to Campus Corner!</Text> 
+           <Image
+      source={{
+        uri: 'https://villanovan.com/wp-content/uploads/2017/04/a160f756c0b3cdaf2d9090c764de345d.jpg'
+        }}
+      style= {{width: 400, height: 400, marginBottom: 10, marginTop: 20}}
+    />
+      <Text style = {{fontSize: 20, marginRight: 5, marginLeft: 5, marginBottom: 25, marginTop: 10,}}>
+          Cloose an option below to begin your order!
+      </Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Munchies', { type: 'delivery' })}
+        onPress={() => navigation.navigate('Menu', { type: 'delivery' })}
       >
         <Text style={styles.buttonText}>Order Delivery</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Munchies', { type: 'pickup' })}
+        onPress={() => navigation.navigate('Menu', { type: 'pickup' })}
       >
         <Text style={styles.buttonText}>Order Pickup</Text>
       </TouchableOpacity>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: -1,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#fff',
@@ -39,9 +45,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 40,
     fontWeight: 'bold',
     marginBottom: 10,
+    marginTop: 80,
+    marginLeft:10,
+    marginRight:10,
   },
   button: {
     backgroundColor: '#0000FF',

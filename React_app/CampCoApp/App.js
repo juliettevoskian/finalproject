@@ -1,17 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState, useEffect} from 'react'
-import { StyleSheet, Text, View, Image, Pressable, NavigationContainer } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, Pressable, } from 'react-native';
+import Munchies from './Munchies';
 import HomePage from './HomeScreen';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import createNativeStackNavigator from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
 
 export default function App({}) {
   return (
-    <View style={styles.container}>
-      <HomePage/>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="HomePage">
+        <Stack.Screen name = "Order Delivery" component = {HomePage} />
+        <Stack.Screen name = "Order Pickup" component = {Munchies}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
