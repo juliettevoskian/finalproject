@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, Button, TouchableOpacity, ImageBackground } from 'react-native'; 
 
 
 export default function HomePage({ navigation }) {
@@ -17,13 +17,17 @@ export default function HomePage({ navigation }) {
       </Text>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Menu', { type: 'delivery' })}
+        onPress={() => { 
+          navigation.navigate('Menu')
+        }}
       >
         <Text style={styles.buttonText}>Order Delivery</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('Menu', { type: 'pickup' })}
+        onPress={() => { 
+          navigation.navigate('Menu')
+        }}
       >
         <Text style={styles.buttonText}>Order Pickup</Text>
       </TouchableOpacity>
@@ -48,7 +52,7 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     marginBottom: 10,
-    marginTop: 80,
+    marginTop: 30,
     marginLeft:10,
     marginRight:10,
   },
