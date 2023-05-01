@@ -2,11 +2,19 @@ import React, { useState } from 'react';
 import { Text, View, TextInput, Button, Alert, StyleSheet,TouchableOpacity } from 'react-native';
 import {Munchies} from './Munchies';
 
+const API_URL = Platform.OS === 'ios' ? 'http://localhost:5001' : 'http://10.0.2.2:5001';
+
 const CartPage = ({inCart}) => {
   const [name, setName] = useState('');
-  const [address, setAddress] = useState('')
+  const [address, setAddress] = useState('');
+  const [message, setMessage] = useState('');
+  const [isLogin, setIsLogin] = useState(true);
 
   const handleDeliveryOrder = () => {
+    const payload = {
+        name,
+        address,
+    }
     if (name === '') {
       Alert.alert('Please enter your name');
     } 
@@ -16,16 +24,80 @@ const CartPage = ({inCart}) => {
       const readyTime = new Date(Date.now() + 30 * 60000).toLocaleTimeString([], {hour: 'numeric', minute: 'numeric'});
       Alert.alert(`Thank you, ${name}! Your order will be arrive at around ${readyTime}`);
     }
-  }
+
+    // Send a request to the server to save the order
+    fetch(`${API_URL}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+    })
+    .then(async res => { 
+        try {
+            const jsonRes = await res.json();
+            if (res.status !== 200) {
+                setIsError(true);
+                setMessage(jsonRes.message);
+            } else {
+                onLoggedIn(jsonRes.token);
+                setIsError(false);
+                setMessage(jsonRes.message);
+            }
+        } catch (err) {
+            console.log(err);
+        };
+    })
+    .catch(err => {
+        console.log(err);
+    });
+  };
 
   const handlePickUpOrder = () => {
+    const payload = {
+        name,
+        address,
+    }
     if (name === '') {
       Alert.alert('Please enter your name');
     } else {
       const readyTime = new Date(Date.now() + 30 * 60000).toLocaleTimeString([], {hour: 'numeric', minute: 'numeric'});
       Alert.alert(`Thank you, ${name}! Your order will be ready for pick up at ${readyTime}`);
     }
+
+    // Send a request to the server to save the order
+    fetch(`${API_URL}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      .then(async res => { 
+          try {
+              const jsonRes = await res.json();
+              if (res.status !== 200) {
+                  setIsError(true);
+                  setMessage(jsonRes.message);
+              } else {
+                  onLoggedIn(jsonRes.token);
+                  setIsError(false);
+                  setMessage(jsonRes.message);
+              }
+          } catch (err) {
+              console.log(err);
+          };
+      })
+      .catch(err => {
+          console.log(err);
+      });
   };
+
+  const getMessage = () => {
+    const status = isError ? `Error: ` : `Success: `;
+    return status + message;
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Continue Below to Checkout</Text> 

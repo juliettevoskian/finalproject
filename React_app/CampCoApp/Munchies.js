@@ -12,6 +12,33 @@ const [inCart,setinCart] = useState([]);
 const handleAddToOrder = (item) => {
   setinCart(inCart => [...inCart, item.menuitem])
   Alert.alert(`Added ${item.menuitem} to your cart!`);
+
+  // Send a request to the server to save the order
+  fetch(`${API_URL}`, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(inCart),
+    })
+    .then(async res => { 
+        try {
+            const jsonRes = await res.json();
+            if (res.status !== 200) {
+                setIsError(true);
+                setMessage(jsonRes.message);
+            } else {
+                onLoggedIn(jsonRes.token);
+                setIsError(false);
+                setMessage(jsonRes.message);
+            }
+        } catch (err) {
+            console.log(err);
+        };
+    })
+    .catch(err => {
+        console.log(err);
+    });
   };  
     menu = [
         {menuitem: "MACARONI & CHEESE", menuprice: "$7.99"},
