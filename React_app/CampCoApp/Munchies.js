@@ -15,20 +15,18 @@ const handleAddToOrder = (item) => {
   };  
     menu = [
         {menuitem: "MACARONI & CHEESE", menuprice: "$7.99"},
-        {menuitem: "ONION RINGS", menuprice: "$6.49"},
+        {menuitem: "ONION RINGS                                          ", menuprice: "$6.49"},
         {menuitem: "FRIES", menuprice: "$4.99"},
         {menuitem: "SWEET POTATO FRIES", menuprice: "$5.99"},
         {menuitem: "MOZZARELLA STICKS", menuprice: "$7.99"},
         {menuitem: "MAC & CHEESE BITES", menuprice: "$6.49"},
         {menuitem: "NACHOS", menuprice: "$8.49"},
         {menuitem: "SMALL CHEESE PIZZA", menuprice:"7.50"},
-        {menuitem: "MED CHEESE PIZZA", menuprice:"8.50"},
+        {menuitem: "MEDUIM CHEESE PIZZA", menuprice:"8.50"},
         {menuitem: "LARGE CHEESE PIZZA", menuprice:"10.00"},
     {menuitem: "SMALL BUFFALO CHICKEN PIZZA", menuprice:"11.49"},
     {menuitem: "MED BUFFALO CHICKEN PIZZA", menuprice:"14.99"},
     {menuitem: "LARGE BUFFALO CHICKEN PIZZA", menuprice:"19.99"},
-    {menuitem: "SMALL BUFFALO CHICKEN PIZZA", menuprice:"11.49"},
-    {menuitem: "SMALL BUFFALO CHICKEN PIZZA", menuprice:"11.49"},
     {menuitem: "CHICKEN FINGERS", menuprice:"7.49"},
     {menuitem: "BREAD STICKS", menuprice:"5.49"},
     {menuitem: "HAM & CHEESE", menuprice:"6.99"},
@@ -66,7 +64,7 @@ const handleAddToOrder = (item) => {
                   {
                     backgroundColor: pressed
                       ? 'rgb(0, 0, 255)'
-                      : 'white'
+                       : 'white'
                   },
                   styles.wrapperCustom
                 ]}>
@@ -94,16 +92,17 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#fff',
+      backgroundColor: 'white',
+      marginTop:20,
     },
     itemName: {
       fontSize: 25,
       fontWeight: 'bold',
-      marginBottom: 20,
+      marginBottom: 10,
+      marginTop:10,
     },
     itemPrice: {
       fontSize: 20,
-      marginBottom: 5,
     },
     button: {
       backgroundColor: '#0000FF',
@@ -114,7 +113,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     buttonText: {
-      color: '#fff',
+      color: 'white',
       fontSize: 18,
       fontWeight: 'bold',
     },
@@ -131,13 +130,16 @@ const styles = StyleSheet.create({
     orderHeader:{
       fontSize: 30,
       fontWeight: 'bold',
-      marginBottom: 30,
+      marginBottom: 20,
       marginTop: 50,
     },
     order:{
       fontSize: 20,
-      marginLeft: 20,
-
+    },
+    border: {
+      borderWidth: 3,
+      borderColor: "black",
+      backgroundColor: "white",
     },
   
   });
