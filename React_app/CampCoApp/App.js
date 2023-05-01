@@ -5,6 +5,7 @@ import HomePage from './HomeScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react'
+import CartPage from './Cart';
 
 
 
@@ -16,6 +17,7 @@ export default function App() {
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name = "Home" component ={HomePage}/>
       <Stack.Screen name="Menu" component={Munchies}/>
+      <Stack.Screen name = "Cart" component={CartPage}/>
      </Stack.Navigator>
    </NavigationContainer>
   );

@@ -13,7 +13,7 @@ export default function HomePage({ navigation }) {
       style= {{width: 400, height: 400, marginBottom: 10, marginTop: 20}}
     />
       <Text style = {{fontSize: 20, marginRight: 5, marginLeft: 5, marginBottom: 25, marginTop: 10,}}>
-          Cloose an option below to begin your order!
+          Click below to begin your order!
       </Text>
       <TouchableOpacity
         style={styles.button}
@@ -21,15 +21,7 @@ export default function HomePage({ navigation }) {
           navigation.navigate('Menu')
         }}
       >
-        <Text style={styles.buttonText}>Order Delivery</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => { 
-          navigation.navigate('Menu')
-        }}
-      >
-        <Text style={styles.buttonText}>Order Pickup</Text>
+        <Text style={styles.buttonText}>Place Your Order</Text>
       </TouchableOpacity>
 
     </View>
